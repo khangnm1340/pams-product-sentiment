@@ -165,7 +165,7 @@
 
 = EDA Highlights
 
-- [Placeholder image: time series of comments/week by subreddit]
+#image("images/_per_week.png", width: 80%)
 - [Placeholder image: length distribution (boxplot or histogram)]
 - [Placeholder image: top product mentions (bar) via keyword/NER]
 - Takeaways (placeholder): spikes follow launch X; r/homelab comments 2× longer.
