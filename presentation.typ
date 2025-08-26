@@ -40,14 +40,14 @@
 
 #pagebreak()
 
-= Executive Summary
-
-- Battery swelling dominates r/macbookpro in Q2–Q3 (placeholder data).
-- Smart-home connectivity drops spike post-firmware X (placeholder data).
-- Headphones: left-channel crackle clusters on model Y (placeholder data).
-- [Placeholder image: multi-subreddit bar chart of top 5 issues by frequency]
-
-#pagebreak()
+// = Executive Summary
+//
+// - Battery swelling dominates r/macbookpro in Q2–Q3 (placeholder data).
+// - Smart-home connectivity drops spike post-firmware X (placeholder data).
+// - Headphones: left-channel crackle clusters on model Y (placeholder data).
+// - [Placeholder image: multi-subreddit bar chart of top 5 issues by frequency]
+//
+// #pagebreak()
 
 = Why These Platforms?
 
@@ -71,32 +71,95 @@
 
 #pagebreak()
 
-= How PRAW Traverses Comments
 
-- Reddit returns comment trees with `MoreComments` placeholders.
-- We expand lazily, traverse, and serialize—no one-click “download”.
-- Captures full depth where needed; avoids rate-limit explosions.
-- [Placeholder image: comment tree diagram with expansion arrows]
+#align(center)[
+  #text(size: 12pt, weight: "bold")[ = How PRAW Traverses Comments ]
+]
+#columns(2)[
+
+    - Reddit returns comment trees with `View more comments` placeholders.
+    - We expand lazily, traverse, and serialize—no one-click “download”.
+    - Captures full depth where needed; avoids rate-limit explosions.
+    // - [Placeholder image: comment tree diagram with expansion arrows]
+  #colbreak()
+
+#image("images/more-comments.png", height: 100%)
+]
+
 
 #pagebreak()
 
-= Alternatives Considered
+#align(center)[
+  #text(size: 12pt, weight: "bold")[ = Alternatives Considered ]
+]
 
-- Pushshift, Academic Torrents, Personal Archive compared on access, filtering, scale.
-- Chosen: history + scale via archives; complement with live API when needed.
-- [Placeholder image: scorecard table with decision badge]
+#grid(
+  columns: (4fr, 6fr),   // 4:6 ratio
+  column-gutter: 1cm,
+  [
+    #strong[Pushshift.io (Pushshift API)]  
+    - More powerful than PRAW, can filter posts by time  
+    - Requires moderator status \ → not feasible
+  ],
+  [
+    #image("images/pushshift.png", width: 100%)
+  ]
+)
+#grid(
+  columns: (4fr, 5fr),   // 4:6 ratio
+  column-gutter: 1cm,
+  [
+#strong[Personal Archive]  
+- Continuous collection over weeks  
+- Impractical: hardware/time, can’t capture older posts
+  ],
+  [
+    #image("images/archive.png", width: 100%)
+  ]
+)
+
+
+#grid(
+  columns: (4fr, 6fr),   // 4:6 ratio
+  column-gutter: 1cm,
+  [
+#strong[Academic Torrents (Arctic Shift)]  
+  - Downloadable historical Reddit datasets  
+  - Good for history + scale
+  ],
+  [
+    #image("images/artic-shift.png", width: 100%)
+  ]
+)
+
+
 
 #pagebreak()
 
-= Subreddits Chosen
-
+#align(center)[
+  #text(size: 12pt, weight: "bold")[ = Subreddits Chosen ]
+]
+#grid(
+  columns: (6fr, 4fr),   // 4:6 ratio
+  column-gutter: 1cm,
+  [
 - A diverse mix of tech and lifestyle communities:
 - r/macbookpro, r/GamingLaptops
-- r/iphone, r/AppleWatch, r/Monitors
-- r/headphones, r/homelab, r/photography
+- r/iphone, r/AppleWatch, r/Monitors, r/headphones, r/homelab, r/photography
 - ...and several others covering home, audio, and PC building.
-- Example coverage: ~N posts, ~M comments, YYYY–YYYY. (placeholder)
-- [Placeholder image: grid of subreddit badges sized by sample count]
+- total : `134121` posts, `1300190` comments, 2025-06-01 -> 2025-07-31. 
+// - [Placeholder image: grid of subreddit badges sized by sample count]
+//  with expansion arrows
+
+  ],
+  [
+#image("images/subreddits.png", width: 60%)
+#image("images/item_counts.png", width: 90%)
+  ]
+)
+
+
+
 
 #pagebreak()
 
@@ -111,6 +174,7 @@
 
 = Preprocessing Pipeline
 
+[data before and after]
 - *Ingestion:* Ingested JSONL into typed Parquet schemas using Polars & Nushell.
 - *Cleaning:*
   - Removed URLs, stripped markup, normalized whitespace.
