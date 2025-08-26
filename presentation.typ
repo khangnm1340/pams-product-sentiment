@@ -173,13 +173,52 @@
 #pagebreak()
 
 = Preprocessing Pipeline
+\
 
-[data before and after]
-- *Ingestion:* Ingested JSONL into typed Parquet schemas using Polars & Nushell.
+// [data before and after]
+#let accent = rgb(0x2f, 0x6f, 0xf6)
+#let ok = rgb(0x17, 0x9e, 0x63)
+#let subtle = luma(96%)
+
+// = Ingestion
+#text(size: 10pt, fill: gray)[Convert 32 JSONL → 2 Parquet (Nushell + Polars); keeping as many meaningful columns as possible.]
+
+#v(6pt)
+
+#grid(
+  columns: (4fr, 1fr, 4fr),
+  column-gutter: 14pt,
+  [
+    #box(fill: subtle, stroke: .6pt, radius: 10pt, inset: 10pt)[
+      #text(weight: "bold")[Before]
+      #v(4pt)
+      Posts: #strong[106] columns \
+      Comments: #strong[69] columns
+    ]
+  ],
+[  // middle cell: center both axes
+    #align(center + horizon)[
+      #text(size: 16pt, weight: "bold", fill: accent)[]
+    ]
+  ],
+  [
+    #box(
+  fill: color.mix((ok, 15%), (white, 85%)),
+  stroke: (paint: ok, thickness: .6pt),
+  radius: 10pt,
+  inset: 10pt,
+  )[
+      #text(weight: "bold", fill: ok)[After]
+      #v(4pt)
+      Posts: #strong[28] columns \
+      Comments: #strong[17] columns
+    ]
+  ],
+)
 - *Cleaning:*
-  - Removed URLs, stripped markup, normalized whitespace.
-  - Filtered for English-only content for initial analysis.
-- *Modeling Choice:* Modeled each comment individually after experiments showed parent context polluted sentiment signals.
+  - Removed URLs.
+  - Filtered for English-only content for initial analysis. (only 5 thousands comments)
+// - *Modeling Choice:* Modeled each comment individually after experiments showed parent context polluted sentiment signals.
 - Randomized 100 posts/sub (seeded) to reduce virality bias. (placeholder)
 - [Placeholder image: before/after text snippet (URLs/emojis removed)]
 - [Placeholder image: language donut (kept vs dropped)]
