@@ -34,7 +34,7 @@
 
 - Which issues? How frequent? How trending? What severity?
 - Where do issues cluster (by product/subreddit/time)?
-- How reliable are methods vs baselines?
+// - How reliable are methods vs baselines?
 - Deliver a repeatable pipeline and clear, prioritized findings.
 
 #pagebreak()
@@ -315,7 +315,9 @@ contextualized_hierarchical_output.json : shows what a comment with the context 
 #columns(2)[
 #image("images/sample_of_model.png", width: 95%)
   #colbreak()
+
 #image("images/vast_ai.png", width: 100%)
+
 ]
 // - [Placeholder image: confusion matrix or calibration curve]
 // - [Placeholder panel: 2–3 qualitative examples with predicted labels]

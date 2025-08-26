@@ -1,5 +1,5 @@
 *.parquet
-*.py
+# *.py
 lid.176.ftz
 .venv
 .ipynb_checkpoints
