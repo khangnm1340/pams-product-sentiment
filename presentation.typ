@@ -29,7 +29,6 @@
 - Turn unstructured Reddit and Tiki text into actionable product signals.
 - Output insights teams can ship on: issues, trends, severity, examples.
 
-#pagebreak()
 
 = Objectives
 
@@ -54,7 +53,60 @@
 - Reddit: rich, threaded discussions; public API; strong NLP support.
 - Tiki (e-commerce): structured, purchase-verified reviews; VN market signal.
 - Complementary: text-rich threads vs short reviews → broader coverage.
-- [Placeholder image: two-column pros/cons cards + coverage map]
+// - [Placeholder image: two-column pros/cons cards + coverage map]
+= Data Source Comparison
+
+#table(
+  columns: (auto, 5cm, 7cm),
+  align: (left, top, top),
+  stroke: 0.5pt + gray,
+  inset: 6pt,
+
+  // Header row
+  [*Platform*], [*Pros*], [*Cons*],
+
+  // Reddit
+  [Reddit],
+  [
+    - Public API (easy access) \
+    - Rich text discussions \
+    - Strong support for English NLP \
+    - Community-driven, topic-focused "subreddits"
+  ],
+  [
+    - Some noise and off-topic posts \
+    - Limited Vietnamese data \
+    - API usage restrictions/quotas
+  ],
+
+  // Facebook
+  [Facebook],
+  [
+    - Large user base in Vietnam \
+    - Active groups and communities \
+    - Rich variety of topics
+  ],
+  [
+    - Many bots/spam accounts \
+    - API restrictions \
+    - Difficult to collect clean data \
+    - Weak support for English NLP libraries
+  ],
+
+  // TikTok
+  [TikTok],
+  [
+    - Very popular among young users \
+    - Strong trend/meme insights
+  ],
+  [
+    - Mostly media (videos, images) \
+    - No official API \
+    - Lacks group/community structure \
+    - Scraping is slow (parse HTML) \
+    - Hard to extract relevant textual data
+  ]
+)
 
 #pagebreak()
 
@@ -66,8 +118,8 @@
   - Reddit historical archives (Academic Torrents) to bypass API caps.
   - Tiki review dumps for cross-source validation.
   - *Result:* Broader time windows, more volume.
-- [Placeholder image: timeline ribbon PRAW → Archives → Tiki]
-- [Placeholder image: flowchart with rate-limit icon on PRAW; time-filter lock]
+// - [Placeholder image: timeline ribbon PRAW → Archives → Tiki]
+// - [Placeholder image: flowchart with rate-limit icon on PRAW; time-filter lock]
 
 #pagebreak()
 
@@ -160,6 +212,14 @@
 
 
 
+
+#pagebreak()
+
+#align(center)[
+  #text(size: 12pt, weight: "bold")[ = Tiki ]
+]
+
+#image("images/tiki.png", width: 80%)
 
 #pagebreak()
 
