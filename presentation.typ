@@ -165,7 +165,15 @@
 
 = EDA Highlights
 
-#image("images/post_per_week.png", width: 80%)
+= EDA Highlights
+
+#image("images/posts_per_subreddit.png", width: 90%)
+
+- r/PcBuild có số lượng posts áp đảo (hơn 30,000), phản ánh mức độ quan tâm lớn đến chủ đề lắp ráp PC.
+- r/laptops, r/iphone, r/GamingLaptops theo sau với khoảng 14,000 posts, gắn liền với các thiết bị phổ biến.
+- Các subreddit như r/HomeDecorating, r/Monitors, r/homelab có mức thảo luận ổn định (6,000–8,000 posts).
+- Những subreddit nhỏ (SmartThings, ErgoMechKeyboards) tuy ít dữ liệu nhưng mang lại insight ngách.
+
 - [Placeholder image: length distribution (boxplot or histogram)]
 - [Placeholder image: top product mentions (bar) via keyword/NER]
 - Takeaways (placeholder): spikes follow launch X; r/homelab comments 2× longer.
