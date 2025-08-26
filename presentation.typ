@@ -217,9 +217,9 @@
 )
 - *Cleaning:*
   - Removed URLs.
-  - Filtered for English-only content for initial analysis. (only 5 thousands comments)
+  - Filtered for English-only content for initial analysis. (only 5 thousands comments(out of 1,3 million), but consider keeping since the model is multilingual)
 // - *Modeling Choice:* Modeled each comment individually after experiments showed parent context polluted sentiment signals.
-- Randomized 100 posts/sub (seeded) to reduce virality bias. (placeholder)
+- Top 30 + 20 randomized posts per sub (seeded) to reduce virality bias. (placeholder)
 - [Placeholder image: before/after text snippet (URLs/emojis removed)]
 - [Placeholder image: language donut (kept vs dropped)]
 - [Placeholder image: schema alignment diagram JSONL → typed Parquet]
