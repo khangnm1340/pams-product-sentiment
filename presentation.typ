@@ -14,7 +14,7 @@
   #v(6pt)
   #text(size: 10pt)[From noisy threads → actionable product signals.]
   #v(6pt)
-  #text(size: 9pt, fill: gray)[[Placeholder image: collage of anonymized comment snippets with callouts]]
+  #text(size: 9pt, fill: gray)[[VISION]]
   // #v(1.5cm)
   // #text(size: 10pt)[Team: Add names and roles here]
   // #v(4pt)
@@ -220,9 +220,11 @@
   - Filtered for English-only content for initial analysis. (only 5 thousands comments(out of 1,3 million), but consider keeping since the model is multilingual)
 // - *Modeling Choice:* Modeled each comment individually after experiments showed parent context polluted sentiment signals.
 - Top 30 + 20 randomized posts per sub (seeded) to reduce virality bias. (placeholder)
-- [Placeholder image: before/after text snippet (URLs/emojis removed)]
-- [Placeholder image: language donut (kept vs dropped)]
-- [Placeholder image: schema alignment diagram JSONL → typed Parquet]
+// - [Placeholder image: before/after text snippet (URLs/emojis removed)]
+// - [Placeholder image: language donut (kept vs dropped)]
+// - [Placeholder image: schema alignment diagram JSONL → typed Parquet]
+
+#image("images/data_for_ML.png", width: 60%)
 
 #pagebreak()
 
@@ -230,7 +232,13 @@
 
 - Parent-context vs per-comment classification compared on small labeled set.
 - Result: per-comment avoids 512-token truncation and context pollution.
-- [Placeholder image: ablation bar chart (F1 with vs without parent context)]
+contextualized_hierarchical_output.json : shows what a comment with the context of it's comment tree looks like.
+// - [Placeholder image: ablation bar chart (F1 with vs without parent context)]
+#columns(2)[
+#image("images/contextualized_comment_1.png", width: 100%)
+  #colbreak()
+#image("images/contextualized_comment_2.png", width: 100%)
+]
 
 #pagebreak()
 
@@ -241,10 +249,16 @@
   - *Why:* Good multilingual support, lightweight, strong zero-shot performance.
 - *Execution:* Rented GPU on `vast.ai` for large-scale inference.
 - *Next Step:* Fine-tune on a domain-specific labeled dataset.
-- [Placeholder image: model compare bar (VADER/TextBlob/DistilBERT) on labeled set]
-- [Placeholder image: throughput/cost bar CPU vs GPU on vast.ai]
-- [Placeholder image: confusion matrix or calibration curve]
-- [Placeholder panel: 2–3 qualitative examples with predicted labels]
+// - [Placeholder image: model compare bar (VADER/TextBlob/DistilBERT) on labeled set]
+// - [Placeholder image: throughput/cost bar CPU vs GPU on vast.ai]
+
+#columns(2)[
+#image("images/sample_of_model.png", width: 95%)
+  #colbreak()
+#image("images/vast_ai.png", width: 100%)
+]
+// - [Placeholder image: confusion matrix or calibration curve]
+// - [Placeholder panel: 2–3 qualitative examples with predicted labels]
 
 #pagebreak()
 
