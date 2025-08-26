@@ -165,8 +165,6 @@
 
 = EDA Highlights
 
-= EDA Highlights
-
 #image("images/posts_per_subreddit.png", width: 90%)
 
 - r/PcBuild có số lượng posts áp đảo (hơn 30,000), phản ánh mức độ quan tâm lớn đến chủ đề lắp ráp PC.
