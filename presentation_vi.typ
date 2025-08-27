@@ -9,13 +9,13 @@
 // Trang tiêu đề
 #align(center)[
   #v(1.5cm)
-  #text(size: 20pt, weight: "bold")[Phân tích thảo luận công khai để khai phá hiểu biết sản phẩm]
+  #text(size: 20pt, weight: "bold")[Phân tích thảo luận công khai để tìm hiểu vấn đề phổ biến của tài sản]
   #v(6pt)
   #text(size: 10pt, fill: gray)[Khai thác Reddit và Tiki về lỗi sản phẩm, cảm xúc và xu hướng]
   #v(6pt)
-  #text(size: 9pt)[Từ chuỗi thảo luận ồn ào → tín hiệu sản phẩm có thể hành động.]
+  // #text(size: 9pt)[Từ chuỗi thảo luận ồn ào → tín hiệu sản phẩm có thể hành động.]
   #v(6pt)
-  #text(size: 8pt, fill: gray)[[TẦM NHÌN]]
+  #text(size: 8pt, fill: gray)[[VISION]]
 ]
 
 #pagebreak()
@@ -269,21 +269,25 @@
 )
 - Làm sạch:
   - Loại bỏ URL.
-  - Lọc chỉ tiếng Anh cho phân tích ban đầu. (chỉ khoảng 5 nghìn bình luận trong 1,3 triệu, nhưng cân nhắc giữ vì mô hình đa ngôn ngữ)
+  - Lọc chỉ tiếng Anh cho phân tích ban đầu. (chỉ khoảng 5 nghìn bình luận trong 1,3 triệu, nhưng cân nhắc giữ vì mô hình đa ngôn ngữ `lxyuan/distilbert-base-multilingual-cased-sentiments-student`)
 // - Lựa chọn mô hình: mô hình hóa từng bình luận sau khi thử nghiệm cho thấy ngữ cảnh cha làm nhiễu tín hiệu cảm xúc.
-- Top 30 + 20 bài ngẫu nhiên mỗi sub (có seed) để giảm thiên lệch lan truyền. (placeholder)
+- Top 30 + 20 bài ngẫu nhiên mỗi sub (có seed) để giảm popularity bias.
 // - [Hình: trước/sau đoạn văn bản (bỏ URL/emoji)]
 // - [Hình: donut ngôn ngữ (giữ vs loại)]
 // - [Hình: căn chỉnh schema JSONL → Parquet có kiểu]
 
-#image("images/data_for_ML.png", width: 60%)
+#columns(2)[
+#image("images/data_for_ML.png", width: 100%)
+#colbreak()
+#image("images/non-english-comments.png", width: 100%)
+]
 
 #pagebreak()
 
 = Thử Nghiệm Ngữ Cảnh (SA Theo Bình Luận)
 
-- So sánh phân loại có ngữ cảnh cha vs theo-bình-luận trên tập nhãn nhỏ.
-- Kết quả: theo bình luận tránh cắt 512 token và giảm nhiễu ngữ cảnh.
+- So sánh phân loại có `ngữ-cảnh-cha` vs `theo-bình-luận` trên tập nhãn nhỏ.
+- Kết quả: `theo-bình-luận` tránh cắt 512 token và giảm nhiễu ngữ cảnh.
 contextualized_hierarchical_output.json: minh họa bình luận kèm ngữ cảnh cây của nó.
 // - [Hình: ablation (F1 có vs không ngữ cảnh cha)]
 #columns(2)[
@@ -305,7 +309,7 @@ contextualized_hierarchical_output.json: minh họa bình luận kèm ngữ cả
 // - [Hình: throughput/chi phí CPU vs GPU trên vast.ai]
 
 #columns(2)[
-#image("images/sample_of_model.png", width: 95%)
+#image("images/sample_of_model.png", width: 80%)
   #colbreak()
 
 #image("images/vast_ai.png", width: 100%)
